@@ -24,9 +24,10 @@ Current Statistics
 #{@total[:failed]} failed
 #{@total[:successful]} successful
 
-#{@total[:rate]} b/s average when successfull
-#{@total[:min_rate]} b/s minimal rate when successfull
-#{@total[:max_rate]} b/s maximal rate when successfull
+#{@total[:bytes]} bytes successfully transfered
+#{@total[:rate]} bytes/s average rate when successful
+#{@total[:min_rate]} bytes/s minimal rate when successful
+#{@total[:max_rate]} bytes/s maximal rate when successful
 
   EOF
   end
@@ -38,7 +39,7 @@ Current Statistics
     rates = []
     @runs.each do |run|
       if run[:error]
-        total[:total.failed] += 1
+        total[:failed] += 1
         next
       end
       total[:successful] += 1
