@@ -1,7 +1,15 @@
-AWS_ACCESS_KEY =  "Please read the README"
-AWS_SECRET_KEY =  "Please read the README"
-AWS_BUCKET_NAME = "Please read the README"
-AWS_OBJECT_KEY =  "Please read the README"
+#!/usr/bin/env ruby
+
+# Downloads file from Amazon S3 and measures performance.
+#
+# public domain - no warranty - see README for more information
+# 
+# original location: http://github.com/panter/s3loadtest/tree/master
+
+AWS_ACCESS_KEY =  "Please read the README" # your s3 access key used to connect
+AWS_SECRET_KEY =  "Please read the README" # your s3 secret key
+AWS_BUCKET_NAME = "Please read the README" # bucket holding the file to download
+AWS_OBJECT_KEY =  "Please read the README" # key of s3 object to download
 
 require 'rubygems'
 require 'benchmark'
@@ -82,6 +90,4 @@ while true
   stats.record run
   puts stats
 end
-
-puts 'Program end.'
 

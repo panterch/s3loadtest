@@ -1,0 +1,55 @@
+ABOUT THIS SOFTWARE
+-------------------
+This scripts constantly transfers files from Amazons S3 [1] storage service and
+measures transfer rates and failures.
+
+This software may help you when changing settings on your EC2 hosts or if you
+are experiencing connection problems.
+
+
+HOWTO INSTALL
+-------------
+
+IMPORTANT NOTE: This script may transfer a lot of data from your amazon s3
+                account. This transfers will be billed according to amazons
+                pricing.
+
+# Step 0: Install AWS:S3 [2] (altough there is a big possiblity that you have 
+# already done this step)
+
+# Step 1: Download the script
+$ wget http://github.com/panter/s3loadtest/tree/master%2Fs3loadtest.rb?raw=true
+
+# Step 2: Edit the AWS_ constants on the first lines of the script with your
+# values. To receive useful results, you may want to set AWS_OBJECT_KEY to a
+# file that is at least 50 MB
+$ vi s3loadtest.rb
+
+# Step 4: run it (you may want to run this in screen or redirect the output for
+# long time statistics)
+$ nice ruby s3loadtest.rb 
+
+SCREENSHOT
+----------
+
+Current Statistics
+------------------
+
+9 runs total
+1 failed
+8 successful
+
+1549470912 bytes successfully transfered
+1780928.39128525 bytes/s average rate when successful
+1740018.36177236 bytes/s minimal rate when successful
+1802019.62402517 bytes/s maximal rate when successful
+
+Streaming 193683864 bytes of data...
+
+
+LICENSE
+-------
+s3loadtest is public domain
+
+[1] http://aws.amazon.com/s3
+[2] http://amazon.rubyforge.org/
